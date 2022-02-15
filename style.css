@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600;700;800&display=swap');
+ 
+body {
+    /* background-color: var(--primary-contrast); */
+    background-image: linear-gradient(
+        rgba(15, 16, 32, 0.8),
+        rgba(15, 16, 32, 0.8)
+      ),
+      url("Images/back.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    object-fit: scale-down;
+  }
+
+/* Css For Spining Logo */
+.spining-logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.spining-logo .neuf-logo{
+    text-align: center;
+}
+.spining-logo .neuf-logo img{
+    width: 400px;
+}
+.spining-logo .submit{
+    margin-top: 20px;
+    text-align: center;
+}
+.spining-logo .btn-submit{
+    color: gray;
+    padding: 10px 20px;
+    border: none;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    width: 150px;
+    border-radius: 5px;
+}
+.spining-logo .icons{
+    text-align: center;
+}
+.spining-logo .icons a svg{
+    fill: white;
+    width: 40px;
+    margin: 0 50px;
+}
+@media screen and (max-width: 500px){
+    .spining-logo .submit{
+        margin-top: 20px;
+        text-align: center;
+    }
+    .spining-logo .btn-submit{
+        color: gray;
+        padding: 10px 20px;
+        border: none;
+        color: black;
+        font-family: 'poppins',sans-serif;
+        font-weight: 500;
+        width: 300px;
+        border-radius: 5px;
+    }
+    .spining-logo .icons a svg{
+        fill: white;
+        width: 40px;
+        margin: 0 20px;
+    }
+}
+
+
+
+
+
+@keyframes neuf-logo{
+    from{
+        transform: rotateY(0deg);
+        moz-transform: rotateY(0deg);
+        ms-transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(-360deg);
+        moz-transform: rotateY(-360deg);
+        ms-transform: rotateY(-360deg);
+    }
+  }
+  
+  @-webkit-keyframes neuf-logo{
+    from{
+        -webkit-transform: rotateY(0deg);
+    }
+    to{
+        -webkit-transform: rotateY(360deg);
+    }
+   }
+
+
+
+   .neuf-logo{
+    animation-name: neuf-logo;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    -webkit-animation-name: neuf-logo;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 5s;
+  }
+
+
+
+
+/* Navbar Section */
+.top .navbar{
+    background-color: black;
+}
+.top .navbar-brand img{
+    width: 60px;
+    margin-left: 10px;
+}
+.top .navbar i{
+    color: white;
+}
+.top .nav-link{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 10px;
+}
+
+
+/* Title Section */
+.title{
+    margin-top: 10px;
+    text-align: center;
+}
+.title h2{
+    color: white;
+    font-size: 23px;
+    font-family: 'poppins',sans-serif;
+}
+.title p{
+    color: white;
+    text-align: center;
+    font-family: 'poppins',sans-serif;
+}
+
+
+/* Store Section */
+.store{
+    margin-top: 60px;
+}
+.store .col-lg-3{
+    margin-bottom: 70px;
+}
+.store .img-box img{
+    width: 250px;
+}
+.store .h3{
+    color: white;
+    text-align: center;
+    font-family: 'Poppins',sans-serif;
+    font-size: 23px;
+}
+.store p{
+    color: white;
+    text-align: center;
+    font-size: 19px;
+}
+.store .sizes{
+    text-align: center;
+}
+.store .sizes button{
+    margin-right: 10px;
+    border: 1px solid white;
+    background-color: transparent;
+    padding: 5px 15px;
+    border-radius: 6px;
+    color: white;
+}
+.store .sizes button:hover{
+    background-color: white;
+    color: black;
+    transition: 0.5s ease;
+}
+.store .display-product{
+    text-align: center;
+    margin-top: 17px;
+}
+.store .btn-cart{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'poppins',sans-serif;
+
+}
+.store .img-small img{
+    width: 200px;
+}
+.store h5{
+    font-family: 'poppins',sans-serif;
+    font-weight: 600;
+}
+.store span{
+    font-weight: 500;
+    font-size: 18px;
+}
+.store .sizes-2{
+    margin-top: 10px;
+}
+
+.store .sizes-2 button{
+    margin-right: 10px;
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 5px 15px;
+    border-radius: 6px;
+    color: black;
+}
+.store .sizes-2 button:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s ease;
+}
+.store input{
+    margin-top: 10px;
+    width: 80px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 6px 10px;
+    color: grey;
+}
+.store .btn-cart2{
+    background-color: black;
+    color: white;
+    margin-top: 15px;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-family: 'poppins',sans-serif;
+}
+.store .description{
+    border: 1px solid black;
+    margin-top: 30px;
+    padding: 10px 10px;
+}
+.store .description p{
+    color: black;
+    font-size: 15px;
+}
+@media only screen and (max-width: 600px){
+    .store .img-box{
+        text-align: center;
+    }
+}
+
+
+
+/* Articles Section */
+.article{
+    margin-top: 80px;
+}
+.article .col-lg-3{
+    margin-bottom: 30px;
+}
+.article .card{
+    background-color: transparent;
+    border: 1px solid white;
+}
+.article .card img{
+    height: 300px;
+}
+.article .card .card-text{
+    color: white;
+    text-align: justify;
+}
+@media only screen and (max-width: 600px){
+    .article .card{
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 900px){
+    .card{
+        margin-right: 20px;
+    }
+}
+
+
+
+/* Gallery Section */
+.gallery{
+    margin: 40px 90px;
+}
+.gallery img{
+    transition: 1s;
+    padding: 15px;
+    width: 250px;
+}
+.gallery img:hover{
+    filter: grayscale(100%);
+    transform: scale(1.1);
+    border: none;
+}
+.gallery a img{
+    border: none;
+}
+
+
+
+
+
+/* Cart Section */
+.cart{
+    margin: 80px auto;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.cart img{
+    width: 90px;
+    margin-right: 10px;
+}
+.cart p{
+    color: white;
+}
+.cart small{
+    color: white;
+}
+.cart .cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cart th{
+    text-align: left;
+    padding: 5px;
+    color: grey;
+}
+.cart td{
+    padding: 10px 5px;
+    color: white;
+}
+.cart td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+.cart td a{
+    color: white;
+    
+}
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+}
+.total-price table{
+    border-top: 3px solid grey;
+    width: 100%;
+    max-width: 350px;
+}
+td:last-child{
+    text-align: right;
+}
+th:last-child{
+    text-align: right;
+}
+.btn-continue a{
+    color: grey;
+}
+.btn-continue .check{
+    margin-left: 70%;
+    border: none;
+    width: 300px;
+    font-family: 'poppins',sans-serif;
+    background-color: black;
+    color: white;
+    padding: 12px 0;
+    border-radius: 5px;
+}
+@media only screen and (max-width: 600px) {
+    .cart-info p{
+        display: none;
+    }
+    .total-price table{
+        max-width: 400px;
+    }
+    .btn-continue {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .cart .btn-continue .check{
+        width: 200px;
+        margin-top: 20px;
+        margin-left: 0%;
+    }
+}
+@media only screen and (max-width: 900px){
+    .cart .btn-continue a button{
+        width: 300px;
+        margin-left: 50%;
+        margin-top: 20px;
+    }
+}
+
+
+
+/* Music Section */
+.music{
+    margin-top: 80px;
+}
+.music .card{
+    margin: 20px;
+}
+.music .card img{
+    height: 300px;
+}
+.music .card-body audio{
+    width: 100%;
+    text-align: center;
+
+}
+.music .card-body audio{
+    width: 100%;
+    text-align: center;
+    /* background-colo: rgb(148, 7, 7); */
+
+}
+.music .card-body{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(7, 7, 7);
+
+}
+
+@media only screen and (max-width: 600px){
+    .card{
+        margin-bottom: 20px;
+    }
+    .music{
+        margin-left: 20%;
+    }
+}
+@media only screen and (max-width: 900px){
+    .card{
+        margin-left: 10px;
+    }
+}
+
+
+
+
+
+
+/* Checkout Section */
+.checkout h6{
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.checkout .input-1{
+    background-color: transparent;
+    border: 1px solid white;
+    height: 45px;
+    width: 250px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    color: white;
+}
+.checkout .input-2{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    height: 45px;
+    width: 250px;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+.checkout .input-3{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    height: 45px;
+    width: 250px;
+    padding: 3px 10px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.checkout .input-4{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    height: 45px;
+    width: 250px;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+.checkout .input-5{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    height: 45px;
+    width: 505px;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+.checkout .img-logo img{
+    width: 100px;
+}
+.checkout .img-logo{
+    margin-top: 50px;
+}
+.checkout .img-logo span{
+    color: white;
+}
+.checkout .img-logo .check-price{
+    margin-left: 50px;
+}
+.checkout .total{
+    color: white;
+    margin-left: 50%;
+}
+.checkout .place{
+    color: white;
+    background-color: black;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    height: 50px;
+    margin-top: 20px;
+}
+.checkout .pay{
+    width: 250px;
+    margin-right: 5px;
+    color: grey;
+    background-color: transparent;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 250px;
+    height: 50px;
+}
+@media only screen and (max-width: 600px){
+    .checkout{
+        text-align: center;
+    }
+    .checkout .input-5{
+        width: 250px;
+    }
+    .checkout .input-3{
+        margin-top: 20px;
+    }
+    .checkout .input-5{
+        margin-top: 20px;
+    }
+    .checkout select{
+        margin-top: 20px;
+    }
+}
+
+
+
+/* 
+
