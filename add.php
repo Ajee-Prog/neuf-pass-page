@@ -1,29 +1,86 @@
 <?php //include('../Incl/header.php');
-    require('../config.php');
+   session_start();
+   if (!isset($_SESSION['admin_email']) && !isset($_SESSION['admin_password'] )) {
+       header("location: shop.php");
+   }
+    require('./config.php');
     $msg = "";
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit']) && isset($_FILES['pImage'])){
         $p_name = $_POST['pName'];
         $p_price = $_POST['pPrice'];
         $p_code = $_POST['pCode'];
+        $product_desc = $_POST['product_desc'];
+        $product_small = $_POST['product_small'];
+        $product_medium = $_POST['product_medium'];
+        $product_large = $_POST['product_large'];
+        $product_xlarge = $_POST['product_xlarge'];
+        echo "<pre>";
+        print_r($_FILES['pImage']);
+        echo "</pre>";
+
         // $p_image = $_POST['pImage'];
 
-        // $target_dir = " ../Images/";
-        // //$m = "image/".$_FILES['pImage']['name'];
+        // $target_dir = " images/";
+        // // $m = "images/".$_FILES['pImage']['name'];
         // $target_file = $target_dir.basename($_FILES['pImage']['name']);
         // // Use move_upload_file function to move your file
+        // print_r($target_file);
+        // if (move_uploaded_file($_FILES['pImage']['tmp_name'], $target_file)) {
+        //     # code...
+        // }
         // move_uploaded_file($_FILES['pImage']['tmp_name'], $target_file);
 
+        // Change your PHP code/script as below and try
+        $name = $_FILES['pImage']['name'];
+        $temp_name = $_FILES['pImage']['tmp_name'];
+        $imgSize = $_FILES['pImage']['size'];
+        $location = 'images/';
+        // get image extension
+        $imgExt = strtolower(pathinfo($name, PATHINFO_EXTENSION)); //Get image extension
+        // Valid image Extensions
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); //Valid extensions
+        //rename uploading image
+        $prodpics = rand(1000, 1000000).".".$imgExt;
+        //Allow valid image file formats
+        if (in_array($imgExt, $valid_extensions)) {
+            // Check file size '5MB'
+            if($imgSize < 5000000){
+                // move_uploaded_file($temp_name, $location.$prodpics);
+                if (move_uploaded_file($temp_name, $location.$prodpics)) {
+                    $sql = "INSERT INTO product(product_name, product_price, product_image, product_code, product_desc, product_small,product_medium,product_large,product_xlarge) VALUE('".$p_name."', '".$p_price."', '".$prodpics."', '".$p_code."','".$product_desc."', '".$product_small."', '".$product_medium."', '".$product_large."', '".$product_xlarge."')";
+                }
+                // $sql = "INSERT INTO product(product_name, product_price, product_image, product_code) VALUE('$p_name', '$p_price', '$temp_name', '$p_code')";
+                echo '<script> alert("File uploaded successfully");</script>';
 
+            }else {
+                $errMSG = "Sorry, your file is  too large";
+            }//END Check file size '5MB'
+
+        } else {
+            $errMSG = "Sorry, only JPG, JPEG, PNG, & GIF are allowed";
+        }
+        //END Allow valid image file formats
+
+        // if (isset($name) and !empty($name)) { Changed from here..
+        //     $location = '../images/';
+        //     if (move_uploaded_file($temp_name, $location.$name)) {
+        //         echo 'File uploaded successfully';
+        //     }
+        // }else {
+        //     echo 'You should select a file to upload !!';
+        // }                                                     Changed To here..
+        // END Change your PHP code/script as below and try
 
         //Use another method
 
-        if ((($_FILES['file']['type']=="image/png") || ($_FILES['file']['type']=="image/jpeg") || ($_FILES['file']['type']=="image/jpg")) && ($_FILES['file']['size'] < 200000)) {
-            move_uploaded_file($_FILES['pImage']['tmp_name'], " ../Images/".$_FILES['pImage']['name']);
-            # code...
-        }
+        // if ((($_FILES['pImage']['type']=="image/png") || ($_FILES['file']['type']=="image/jpeg") || ($_FILES['file']['type']=="image/jpg")) && ($_FILES['pImage']['size'] < 200000)) {
+        //     move_uploaded_file($_FILES['pImage']['tmp_name'], " ../images/".$_FILES['pImage']['name']);
+        //     # code...
+        // }
 
 
-        $sql = "INSERT INTO product(product_name, product_price, product_image, product_code) VALUE('$p_name', '$p_price', '$target_file', '$p_code')";
+        // $sql = "INSERT INTO product(product_name, product_price, product_image, product_code) VALUE('$p_name', '$p_price', '$target_file', '$p_code')";
+        // $sql = "INSERT INTO product(product_name, product_price, product_image, product_code) VALUE('$p_name', '$p_price', '$temp_name', '$p_code')";
         if(mysqli_query($conn, $sql)){
             $msg = " Product Added to the DataBase Successfully!";
         }
@@ -62,10 +119,12 @@
 <body class="bg-dark">
     
 <div class="container">
+    <?php echo "<h1>Welcome".$_SESSION['admin_email'].'<br>'.$_SESSION['admin_password'].'</h1>'; ?>
+    <a href="logout.php">Logout</a>
     <div class="row justify-content-center">
         <div class="col col-md-6 bg-light mt-5 rounded">
             <h2 class="text-center p-2"> Add Product Information </h2>
-            <form action="" method="post" class="p-2"enctype="multipart/form-data" id="form-box">
+            <form action="" method="post" class="p-2" enctype="multipart/form-data" id="form-box">
                 <div class="form-group">
                     <input type="text" name="pName" id="" class="form-control" placeholder="Product Name" required>
                 </div>
@@ -76,7 +135,19 @@
                     <input type="text" name="pCode" id="" class="form-control" placeholder="Product Code" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="pDescription" id="" class="form-control" placeholder="Product Description" required>
+                    <input type="text" name="product_desc" id="" class="form-control" placeholder="Product Description" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="product_small" id="" class="form-control" placeholder="S" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="product_medium" id="" class="form-control" placeholder="M" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="product_large" id="" class="form-control" placeholder="Product X" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="product_xlarge" id="" class="form-control" placeholder="Product XX" required>
                 </div>
                 <div class="form-group">
                     <!-- <input type="text" name="pImage" id="" class="form-control" placeholder="Product Name" required> -->
@@ -96,7 +167,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-md-6 mt-3 p-3 bg-light rounded">
-            <a href="../index.php" class="btn btn-warning btn-block btn-lg">Go To Product Page</a>
+            <a href="shop.php" class="btn btn-warning btn-block btn-lg">Go To Product Page</a>
         </div>
     </div>
 </div>
@@ -113,3 +184,11 @@
     <script src="index.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+<!-- New / Old add code -->
+

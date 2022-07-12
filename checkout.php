@@ -73,22 +73,26 @@ $allItems = implode(", ", $items);
                     <form action="" method="post" id="placeOrder" >
                         <input type="hidden" name="products" value="<?= $allItems; ?>">
                         <input type="hidden" name="grand_total" value="<?= $grand_total; ?>">
-                        <input type="text" name ="name" placeholder="First name" class="input-1"><input type="text" name="last_name" placeholder="Last name" class="input-2"><br>
-                        <input type="text" name ="email" placeholder="Email" class="input-3"><input type="text" name="phone" placeholder="Phone" class="input-4"><br>
+                        <input type="text" name ="first_name" placeholder="First name" class="input-1">
+                        <input type="text" name="last_name" placeholder="Last name" class="input-2"><br>
+                        <input type="text" name ="email" placeholder="Email" class="input-3">
+                        <input type="text" name="phone" placeholder="Phone" class="input-4"><br>
+                        <input type="text" name ="country" placeholder="Country" class="input-3">
+                        <input type="text" name="state" placeholder="State" class="input-4"><br>
                         <!-- <input type="text" name="address" placeholder="Address" class="input-5"><br>--> 
                         <textarea name="address" id="" class="form-control fst-italic input-5" cols="10" rows="3" placeholder="Address"></textarea><br>
 
                         
                         <select class="pay" name="pmode">
-                            <option value="none" selected>Payment Method</option>
-                            <option value="male">Paypal</option>
-                            <option value="female">Debit/Credit</option>
+                            <option value="none" selected>--Payment Method--</option>
+                            <option value="PayPal">Paypal</option>
+                            <option value="Debit/Credit">Debit/Credit</option>
                             <option value="other">Paystack</option>
                         </select>
                         <!-- Place Order Button -->
                         <!-- <button class="place" name="submit" id="submit">Place Order </button> -->
                         <input type="text" name="city" placeholder="City" class="input-4"> <br>
-                        <input type="submit" name="submit" name="pay_now" id="submit" value="Place Order" style="background-color:black;" class="btn btn-secondary bg-dar  mt-2 btn-outline-light btn-block form-control input-5" >
+                        <input type="submit" name="submit" nam="pay_now" id="submit" value="Place Order" style="background-color:black;" class="btn btn-secondary bg-dar  mt-2 btn-outline-light btn-block form-control input-5" >
                     </form>
                     
                 </div>

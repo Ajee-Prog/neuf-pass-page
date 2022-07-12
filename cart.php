@@ -49,12 +49,14 @@
                 <img src="<?= $row['product_image'];?>" alt="">
                 <div class="my-auto">
                   <p><?= $row['product_name'];?></p>
-                  <small>Size: XL</small>
+                  <small>Size:  <?= $row['product_size'];?></small>
+                  
                   <br>
+                  <small>Code:  <?= $row['product_code'];?></small>
                 </div>
               </div>
             </td>
-            <td>$$<?= number_format($row['product_price'],2);?></td>
+            <td>$<?= number_format($row['product_price'],2);?></td>
             <input type="hidden" name="" class="pprice" value="<?=  $row['product_price'];?>">
               <!-- Item Quantity -->
             
